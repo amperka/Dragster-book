@@ -7,13 +7,12 @@ Octoliner octoliner;
 
 int lineData[8];
 
-float speed = 0.55;
-float KP = 0.5;
-float KD = 0.5;
-float KI = 0.0;
+float speed = 0.5;
+float KP = 1;
+float KD = 1;
 double output;
 
-PID regulator(&output, KP, KI, KD);
+PID regulator(&output, KP, 0, KD);
 
 void setup() {
     robot.begin();
