@@ -10,8 +10,8 @@ int lineData[8];
 float speed = 0.5;
 float KP = 1;
 float KD = 1;
-double output;
 
+double output;
 PID regulator(&output, KP, 0, KD);
 
 void setup() {
@@ -28,3 +28,9 @@ void loop() {
   regulator.compute(error);
   robot.driveF(speed * (1 - output), speed * (1 + output));
 }
+
+/*
+(10) Немного увеличиваем скорость.
+(12) Добавляем дифференциальный коэффициент. Он ускорит ответную реакцию на возникающую ошибку.
+(15) Не забываем передать переменную в регулятор.
+*/

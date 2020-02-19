@@ -11,8 +11,8 @@ float speed = 0.55;
 float KP = 0.5;
 float KD = 0.5;
 float KI = 0.0;
-double output;
 
+double output;
 PID regulator(&output, KP, KI, KD);
 
 void setup() {
@@ -29,3 +29,9 @@ void loop() {
   regulator.compute(error);
   robot.driveF(speed * (1 - output), speed * (1 + output));
 }
+
+/*
+(10) Увеличиваем скорость Драгстера.
+(13) Добавляем переменную для интегрального коэффициента. Сначала с нулевым значением, затем будем плавно увеличивать от заезда к заезду.
+(16) Заменяем 0 на переменную интегральной составляющей.
+*/
