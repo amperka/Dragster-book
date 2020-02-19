@@ -10,22 +10,22 @@ float R1 = 10000;
 float R2 = 36000;
 
 void setup() {
-    matrix.begin();
-    pinMode(A1, INPUT);
+  matrix.begin();
+  pinMode(A1, INPUT);
 }
 
 void loop() {
-    delay(200);
-    int adcValue = analogRead(A1);
-    float V = adcValue * 5.0 / 1023.0;
-    float Vbat = V * (R1 + R2) / R2;
-    int matrixValue = (Vbat - 3.2) * 8;
-    for (int i = 0; i < 8; i++) {
-        if (i < matrixValue) {
-            diagram[i] = volume[i];
-        } else {
-            diagram[i] = 0x00;
-        }
+  delay(200);
+  int adcValue = analogRead(A1);
+  float V = adcValue * 5.0 / 1023.0;
+  float Vbat = V * (R1 + R2) / R2;
+  int matrixValue = (Vbat - 3.2) * 8;
+  for (int i = 0; i < 8; i++) {
+    if (i < matrixValue) {
+      diagram[i] = volume[i];
+    } else {
+      diagram[i] = 0x00;
     }
-    matrix.drawBitmap(diagram);
+  }
+  matrix.drawBitmap(diagram);
 }
