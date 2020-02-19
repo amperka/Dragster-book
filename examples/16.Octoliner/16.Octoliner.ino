@@ -9,7 +9,7 @@ byte diagram[8];
 void setup() {
   matrix.begin();
   octoliner.begin();
-  octoliner.setSensitivity(); //???????
+  octoliner.setSensitivity();
 }
 
 void loop() {
