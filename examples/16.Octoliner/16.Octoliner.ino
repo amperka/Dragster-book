@@ -1,5 +1,5 @@
-#include ″TroykaLedMatrix.h″
-#include ″Octoliner.h″
+#include "TroykaLedMatrix.h"
+#include "Octoliner.h"
 
 Octoliner octoliner;
 TroykaLedMatrix matrix;
@@ -9,7 +9,7 @@ byte diagram[8];
 void setup() {
   matrix.begin();
   octoliner.begin();
-  octoliner.setSensitivity();
+  octoliner.setSensitivity(50);
 }
 
 void loop() {
