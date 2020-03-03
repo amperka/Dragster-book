@@ -18,7 +18,7 @@ void setup() {
 void loop() {
   for (int i = 0; i < 8; i++) {
     int adcValue = octoliner.analogRead(i);
-    diagram[i] = matrix.map(adcValue, 0, 1024);
+    diagram[i] = matrix.map(adcValue, 0, 1023);
     if (diagram[i] < 4) {
       robot.drive(0, 0);
     }
