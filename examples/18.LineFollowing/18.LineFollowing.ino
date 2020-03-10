@@ -1,4 +1,4 @@
-#include ″Dragster.h″
+#include "Dragster.h"
 #include "Octoliner.h"
 #include "TroykaLedMatrix.h"
 
@@ -24,7 +24,7 @@ void loop() {
 
   for (int i = 0; i < 8; i++) {
     int adcValue = octoliner.analogRead(i);
-    diagram[i] = matrix.map(adcValue, 0, 1024);
+    diagram[i] = matrix.map(adcValue, 0, 1023);
     sum += adcValue;
     sumWeighted += adcValue * weight[i];
   }
